@@ -35,23 +35,25 @@
         dataType: 'json',
         sequentialUploads: true,
         done: function (e, data) {
-           console.log(data.result.files);
-           $.each(data.result.files, function (index, file) {
-             var host = location.host;
-             var protocol = location.protocol;
-             var path = location.pathname;
-             var s = ""
-               + "<p class='success'><strong>"
-               + "Successfully uploaded!"
-               + "</strong> ('"+file.name+"')"
-               + "<br>URL: "+protocol+"//"+host+"/"+path+"files/"+encodeURI(file.name)+""
-               + "</p>"
-               ;
-             var $e = $(s);
-             $popups.push($e);
+          console.log("done!");
+          console.log(data.result.files);
+          $.each(data.result.files, function (index, file) {
+            var host = location.host;
+            var protocol = location.protocol;
+            var path = location.pathname;
+            var url = ""+protocol+"//"+host+"/"+path+"s/redirect.php?q="+encodeURI(file.name)+"";
+            var s = ""
+              + "<p class='success'><strong>"
+              + "Successfully uploaded!"
+              + "</strong> ('"+file.name+"')"
+              + "<br>⇒ <a href='"+url+"' target=\"about:blank\">画像を開く</a>"
+              + "</p>"
+              ;
+            var $e = $(s);
+            $popups.push($e);
 
-             $('#result').append($e);
-           });
+            $('#result').append($e);
+          });
         }
       });
     });

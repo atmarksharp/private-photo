@@ -19,7 +19,7 @@ if($p['port']){
   $port = '';
 }
 
-$img_link = "${p['scheme']}://${p['host']}${port}/lab/private/lib/server/php/files/${file}";
+$img_link = "${p['scheme']}://${p['host']}${port}/private/lib/server/php/files/${file}";
 
 ?>
 <!DOCTYPE html>
