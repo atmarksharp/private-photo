@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Upload private photo</title>
+
+<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+  <style>
+  body {
+    padding: 10px;
+  }
+
+  .success {
+    padding: 15px;
+    background: #d0ffd0;
+  }
+  </style>
+</head>
+<body>
+  <h2>Upload private photo</h2>
+  <p>Select image file:</p>
+  <input id="fileupload" type="file" name="files[]" data-url="lib/server/php/" multiple>
+  <p id="result"></p>
+
+  <script src="http://code.jquery.com/jquery-2.2.0.min.js"></script>
+  <script src="lib/js/vendor/jquery.ui.widget.js"></script>
+  <script src="lib/js/jquery.iframe-transport.js"></script>
+  <script src="lib/js/jquery.fileupload.js"></script>
+  <script>
+    var $popups = [];
+
+    $(function () {
+      $('#fileupload').fileupload({
+        dataType: 'json',
+        sequentialUploads: true,
+        done: function (e, data) {
+           console.log(data.result.files);
+           $.each(data.result.files, function (index, file) {
+             var host = location.host;
+             var protocol = location.protocol;
+             var path = location.pathname;
+             var s = ""
+               + "<p class='success'><strong>"
+               + "Successfully uploaded!"
+               + "</strong> ('"+file.name+"')"
+               + "<br>URL: "+protocol+"//"+host+"/"+path+"files/"+encodeURI(file.name)+""
+               + "</p>"
+               ;
+             var $e = $(s);
+             $popups.push($e);
+
+             $('#result').append($e);
+           });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
