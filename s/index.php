@@ -39,7 +39,7 @@ $img_link = "${p['scheme']}://${p['host']}${port}/private/lib/server/php/files/$
 </head>
 <body>
   <h2>写真</h2>
-  <p>免責事項: <strong style="color:red;">このリンクに直リンクしないでください。適宜削除します。</strong></p>
+  <p>注意事項: <strong style="color:red;">このリンクに直リンクしないでください。適宜削除します。</strong></p>
   <img src="<?php echo $img_link; ?>"/>
 </body>
 </html>
