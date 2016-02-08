@@ -27,7 +27,7 @@ $img_link = "${p['scheme']}://${p['host']}${port}/private/s/?q=${file}";
 <head>
   <meta charset="UTF-8">
   <meta name="robots" content="noindex,nofollow">
-
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
   <title>認証</title>
 
   <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">

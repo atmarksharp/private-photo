@@ -27,6 +27,7 @@ $img_link = "${p['scheme']}://${p['host']}${port}/private/lib/server/php/files/$
 <head>
   <meta charset="UTF-8">
   <meta name="robots" content="noindex,nofollow">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
 
   <title>Photo</title>
 
@@ -35,11 +36,15 @@ $img_link = "${p['scheme']}://${p['host']}${port}/private/lib/server/php/files/$
   body {
     padding: 10px;
   }
+
+  #photo {
+    max-width: 100%;
+  }
   </style>
 </head>
 <body>
   <h2>写真</h2>
   <p>注意事項: <strong style="color:red;">このリンクに直リンクしないでください。適宜削除します。</strong></p>
-  <img src="<?php echo $img_link; ?>"/>
+  <img id="photo" src="<?php echo $img_link; ?>"/>
 </body>
 </html>
